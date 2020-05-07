@@ -17,10 +17,21 @@ class ES_Info {
 		$help_title = __( 'Help & Info', 'email-subscribers' );
 		add_submenu_page( 'es_dashboard', $help_title, $help_title, 'edit_posts', 'es_general_information', array( $this, 'es_information_callback' ) );
 
+        // XTEC ************ AFEGIT - Delete submenu page Go Pro
+        // 2019.12.20 @nacho
+        if (is_xtec_super_admin()) {
+        //************ FI
+
 		$pro_title      = __( '<span class="es-fire-sale"> 🔥 </span> Go Pro', 'email-subscribers' );
 		if( ! ES()->is_pro() ){
 			add_submenu_page( 'es_dashboard', $pro_title, $pro_title, 'edit_posts', 'es_pricing', array( $this, 'es_pricing_callback' ) );
 		}
+
+        // XTEC ************ AFEGIT - Delete submenu page Go Pro
+        // 2019.12.20 @nacho
+        }
+        //************ FI
+
 	}
 
 	public function es_information_callback() {

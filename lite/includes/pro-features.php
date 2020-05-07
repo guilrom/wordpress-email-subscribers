@@ -29,6 +29,12 @@ function ig_es_add_upsale( $fields ) {
 			'name' => '',
 			'html' => '<div class="es-upsale-image" style=""><a target="_blank" href="https://www.icegram.com/managed-blacklists-captcha/?utm_source=in_app&utm_medium=es_security_settings&utm_campaign=es_upsale#blockspam"><img src="' . ES_PLUGIN_URL . 'lite/admin/images/es-captcha-2.png' . '"/></a></div>'
 		);
+
+        // XTEC ************ AFEGIT - Disable Security settings
+        // 2019.12.20 @nacho
+		$field_security['es_upsale_security'] = [];
+        //************ FI
+
 		$fields['security_settings']          = array_merge( $fields['security_settings'], $field_security );
 
 		// SMTP settings
@@ -38,6 +44,12 @@ function ig_es_add_upsale( $fields ) {
 			'name' => '<div class="es-smtp-label" style=""><a target="_blank" href="https://www.icegram.com/solid-email-delivery/?utm_source=in_app&utm_medium=es_smtp&utm_campaign=es_upsale#delivery"><img src="' . ES_PLUGIN_URL . 'lite/admin/images/es-smtp-label.png' . '"/></a></div>',
 			'html' => '<div class="es-upsale-image es-smtp-image" style=""><a target="_blank" href="https://www.icegram.com/email-subscribers-starter/?utm_source=in_app&utm_medium=es_smtp&utm_campaign=es_upsale"><img src="' . ES_PLUGIN_URL . 'lite/admin/images/es-smtp.png' . '"/></a></div>'
 		);
+
+        // XTEC ************ AFEGIT - Disable SMTP
+        // 2019.12.20 @nacho
+        $field_smtp['es_upsale_smtp'] = [];
+        //************ FI
+
 		$fields['email_sending']      = array_merge( $fields['email_sending'], $field_smtp );
 
 	}
@@ -46,6 +58,12 @@ function ig_es_add_upsale( $fields ) {
 }
 
 function ig_es_add_sync_users_tabs( $tabs ) {
+
+// XTEC ************ AFEGIT - Hidden tab "Comments" in Audience > Sync to all users but xtecadmin
+// 2019.12.20 @nacho
+    if (is_xtec_super_admin()) {
+//************ FI
+
 	global $ig_es_tracker;
 
 	// Show integrations only if ES Premium is not installed.
@@ -116,8 +134,12 @@ function ig_es_add_sync_users_tabs( $tabs ) {
 				'indicator_label'  => 'Starter'
 			);
 		}
-
 	}
+
+// XTEC ************ AFEGIT - Hidden tab "Comments" in Audience > Sync to all users but xtecadmin
+// 2019.12.20 @nacho
+    }
+//************ FI
 
 	return $tabs;
 }

@@ -28,6 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </ul>
             </div>
         </div>
+
+        <?php
+        // XTEC ************ AFEGIT - Hidden unnecessary help to all users but xtecadmin
+        // 2019.12.20 @nacho
+        if (is_xtec_super_admin()) {
+        ?>
+
         <div class="right-blog">
 
 			<?php if ( $enable_manual_update ) {
@@ -61,6 +68,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			} ?>
 
+        <?php
+        }
+        // *********FI
+        ?>
+
             <div class="subscribe-form">
                 <h4><?php echo __( 'Additional form settings', 'email-subscribers' ); ?></h4>
                 <ul>
@@ -92,6 +104,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <li><a target="_blank" href="https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-newsletters/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page"><?php echo __( 'Keywords in the Newsletters', 'email-subscribers' ); ?></a></li>
             </ul>
         </div>
+
+        <?php
+        // XTEC ************ MODIFICAT - Hidden cron options for all users but xtecadmin
+        // 2019.12.20 @nacho
+        if (is_xtec_super_admin()) {
+        //************ FI
+        ?>
+
         <div class="feature-blog">
             <h3><?php echo __( 'Cron Job Setup', 'email-subscribers' ); ?></h3>
             <ul>
@@ -101,6 +121,19 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <li><a target="_blank" href="https://www.icegram.com/documentation/es-what-to-do-if-hosting-doesnt-support-cron-jobs/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page"><?php echo __( 'Hosting doesn’t support Cron Jobs?', 'email-subscribers' ); ?></a></li>
             </ul>
         </div>
+
+        <?php
+        // XTEC ************ MODIFICAT - Hidden cron options for all users but xtecadmin
+        // 2019.12.20 @nacho
+        }
+        //************ FI
+
+        // XTEC ************ MODIFICAT - Hidden GDPR for all users but xtecadmin
+        // 2019.12.20 @nacho
+        if (is_xtec_super_admin()) {
+        //************ FI
+        ?>
+
         <div class="feature-blog">
             <h3><?php echo __( '[GDPR] Email Subscribers', 'email-subscribers' ); ?></h3>
             <ul>
@@ -108,6 +141,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <li><a target="_blank" href="https://www.icegram.com/documentation/es-gdpr-what-data-email-subscribers-stores-on-your-end/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page"><?php echo __( 'What data Email Subscribers stores on your end?', 'email-subscribers' ); ?></a></li>
             </ul>
         </div>
+
+        <?php
+        // XTEC ************ MODIFICAT - Hidden GDPR for all users but xtecadmin
+        // 2019.12.20 @nacho
+        }
+        //************ FI
+        ?>
+
         <div class="feature-blog">
             <h3><?php echo __( 'Post Notifications', 'email-subscribers' ); ?></h3>
             <ul>
@@ -125,6 +166,14 @@ if ( ! defined( 'ABSPATH' ) ) {
             </ul>
         </div>
     </div>
+
+    <?php
+    // XTEC ************ MODIFICAT - Hidden help info for all users but xtecadmin
+    // 2019.12.20 @nacho
+    if (is_xtec_super_admin()) {
+    //************ FI
+    ?>
+
     <div class="feature-section feature-section-last">
         <div class="feature-header"><h2><?php echo __( "Want to do more? Here's how..", 'email-subscribers' ); ?></h2></div>
         <div class="feature-blog-wrapper">
@@ -146,4 +195,12 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
         </div>
     </div>
+
+    <?php
+    // XTEC ************ MODIFICAT - Hidden help info for all users but xtecadmin
+    // 2019.12.20 @nacho
+    }
+    //************ FI
+    ?>
+
 </div>

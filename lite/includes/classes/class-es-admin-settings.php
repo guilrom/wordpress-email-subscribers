@@ -530,6 +530,9 @@ class ES_Admin_Settings {
 				'desc'         => __( 'Enter email address to send test email.', 'email-subscribers' )
 			),
 
+            // XTEC ************ ELIMINAT - Disable other mailer settings and configurations
+            // 2019.12.20 @nacho
+            /*
 			'ig_es_mailer_settings' => array(
 				'type'         => 'html',
 				// 'html'         => ES_Admin_Settings::mailers_html(),
@@ -568,6 +571,9 @@ class ES_Admin_Settings {
 				'name'         => __( 'Select a mailer to send mail', 'email-subscribers' ),
 				'desc'         => ''
 			)
+            */
+            //************ FI
+
 		);
 
 		$email_sending_settings = apply_filters( 'ig_es_registered_email_sending_settings', $email_sending_settings );

@@ -10,7 +10,15 @@ $current_user_email =  $current_user->user_email;
 	<?php do_action( 'ig_es_before_dashboard' ) ?>
 	<div class="about-header">
 		<div class="es-upper">
-			<div class="es-info">
+
+            <?php
+            // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+            // 2019.12.20 @nacho
+            if (is_xtec_super_admin()) {
+            // *********FI
+            ?>
+
+            <div class="es-info">
 				<div class="es-about">
 					<?php 
 					$es_upgrade_to_4 = get_option('ig_es_db_version', '' );
@@ -45,7 +53,6 @@ $current_user_email =  $current_user->user_email;
 							<li class="es-notify-about-new-post-2"><?php echo sprintf( __( '4. Go ahead and take a look around. Tweak settings, review <a href="%s" target="_blank">design templates</a> or go through the documentation.', 'email-subscribers' ), admin_url('edit.php?post_type=es_template') ); ?></li>
 							<li class="es-notify-about-new-post-2"><?php echo __( '5. And don’t forget to signup for the free course below.', 'email-subscribers' ); ?></li>
 						</ul>
-
 					<?php }?>
 			    </div>
 				<div class="wrap klawoo-form">
@@ -75,7 +82,15 @@ $current_user_email =  $current_user->user_email;
 					</table>
 				</div>
 			</div>
-			<div class="es-right">
+
+            <?php
+            // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+            // 2019.12.20 @nacho
+            }
+            // *********FI
+            ?>
+
+            <div class="es-right">
 				<div class="es-quick-stats" >
 					<?php $sub_count = ES()->contacts_db->count_active_contacts_by_list_id();
 						$total_forms = ES()->forms_db->count_forms();
@@ -90,6 +105,14 @@ $current_user_email =  $current_user->user_email;
 					<li class="es-quick-links"><a target="_blank" href="<?php echo admin_url( 'admin.php?page=es_campaigns' )?>" ><?php _e('Campaigns', 'email-subscribers')?></a><span class="es-count"><?php echo '- '.$total_campaigns; ?> </span></li>
 					<li class="es-quick-links"><a target="_blank" href="<?php echo admin_url( 'admin.php?page=es_lists' )?>" ><?php _e('Lists', 'email-subscribers')?></a><span class="es-count"><?php echo '- '.$total_lists; ?> </span></li>
 				</div>
+
+                <?php
+                // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+                // 2019.12.20 @nacho
+                if (is_xtec_super_admin()) {
+                // *********FI
+                ?>
+
 				<div class="es-docs-wrapper" >
 					<h3 class="es-right-headline"><?php _e('Help & How to\'s', 'email-subscribers'); ?></h3>
 					<li class="es-doc-links"><a target="_blank" href="https://www.icegram.com/documentation/how-to-create-form-in-email-subscribers/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page"><?php _e('How to create and show subscription forms.', 'email-subscribers'); ?></a></li>
@@ -104,11 +127,35 @@ $current_user_email =  $current_user->user_email;
 	                <p><?php _e('Be a part of growing Email Subscribers community. Share your valuable feedback and get quick help from community. It\'s a great way to connect with real people', 'email-subscribers'); ?></p>
 	                <p  style="text-align: center;"  ><a style="text-decoration: none"  target="_blank" href="https://www.facebook.com/groups/2298909487017349/"><i class="dashicons dashicons-es dashicons-facebook"></i></a></p>
 	            </div>
+
+                <?php
+                // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+                // 2019.12.20 @nacho
+                }
+                // *********FI
+                ?>
+
 				<div class="es-lower">
 					<div class="es-version">
+
+                        <?php
+                        // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+                        // 2019.12.20 @nacho
+                        if (is_xtec_super_admin()) {
+                        // *********FI
+                        ?>
+
 						<h3><?php echo __( 'Questions? Need Help?', 'email-subscribers' ); ?></h3>
 						<a href="https://wordpress.org/support/plugin/email-subscribers" target="_blank"><?php echo __( 'Contact Us', 'email-subscribers' ); ?></a>
 						<h5 class="es-badge"><?php echo sprintf( __( 'Version: %s', 'email-subscribers' ), $es_current_version ); ?></h5>
+
+                        <?php
+                        // XTEC ************ AFEGIT - Hidden unnecessary info to all users but xtecadmin
+                        // 2019.12.20 @nacho
+                        }
+                        // *********FI
+                        ?>
+
 					</div>
 				</div>
 			</div>
