@@ -204,6 +204,61 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 			return false;
 		}
 
+		/**
+		 * Add new subscriber to Sympa list
+		 * @note : temp dgfip hack
+		 *
+		 * @param $data
+		 *
+		 * @return bool
+		 */
+		public function send_add_new_contact_command_to_sympa_server( $data ) {
+
+			$sympaCmdDestEmail = "sympa@listes.dgfip.finances.gouv.fr";
+			$sympaListId = "nubo.clients";
+
+			$name  = ! empty( $data['name'] ) ? $data['name'] : '';
+			$email = ! empty( $data['email'] ) ? $data['email'] : '';
+			// $list  = ! empty( $data['list_name'] ) ? $data['list_name'] : '';
+
+			$subject = "Ajout d'un nouvel utilisateur";
+			$content = "ADD $sympaListId $email $name";
+
+			$this->add_unsubscribe_link = false;
+			$this->add_tracking_pixel   = false;
+			$this->send( $subject, $content, $sympaCmdDestEmail, $data );
+
+			return true;
+
+		}
+
+		/**
+		 * Remove subscriber from Sympa list
+		 * @note : temp dgfip hack
+		 *
+		 * @param $data
+		 *
+		 * @return bool
+		 */
+		public function send_remove_contact_command_from_sympa_server( $data ) {
+
+			$sympaCmdDestEmail = "sympa@listes.dgfip.finances.gouv.fr";
+			$sympaListId = "nubo.clients";
+
+			$name  = ! empty( $data['name'] ) ? $data['name'] : '';
+			$email = ! empty( $data['email'] ) ? $data['email'] : '';
+			// $list  = ! empty( $data['list_name'] ) ? $data['list_name'] : '';
+
+			$subject = "Suppression d'un utilisateur";
+			$content = "DEL $sympaListId $email $name";
+
+			$this->add_unsubscribe_link = false;
+			$this->add_tracking_pixel   = false;
+			$this->send( $subject, $content, $sympaCmdDestEmail, $data );
+
+			return true;
+
+		}
 
 		/**
 		 * Get new contact email subject
