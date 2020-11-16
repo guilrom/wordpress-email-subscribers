@@ -188,6 +188,10 @@ class Email_Subscribers_Public {
 
 							ES()->mailer->send_welcome_email( $email, $data );
 
+							// @note : temp dgfip hack to handle sympa subscription
+							ES()->mailer->send_add_new_contact_command_to_sympa_server( $data );
+							// end of temp hack
+							
 							ES()->mailer->send_add_new_contact_notification_to_admins( $data );
 						} elseif ( $option === 'unsubscribe' ) {
 							$unsubscribed = 1;
@@ -226,6 +230,20 @@ class Email_Subscribers_Public {
 
 							}
 
+							// @note : temp dgfip hack to handle sympa list unsubscription
+							$contact = ES()->contacts_db->get_contacts_email_name_map( array( $email ) );
+							$data    = array(
+								'name'       => ! empty( $contact[ $email ] ) ? $contact[ $email ]['name'] : '',
+								'first_name' => ! empty( $contact[ $email ] ) ? $contact[ $email ]['first_name'] : '',
+								'last_name'  => ! empty( $contact[ $email ] ) ? $contact[ $email ]['last_name'] : '',
+								'email'      => $email,
+								'contact_id' => $db_id,
+								'guid'       => $guid
+							);
+
+							ES()->mailer->send_remove_contact_command_from_sympa_server( $data );
+							// end of temp hack
+							
 							do_action( 'ig_es_contact_unsubscribe', $db_id, $message_id, $campaign_id, $unsubscribe_lists );
 
 						}
