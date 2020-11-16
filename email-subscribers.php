@@ -1,9 +1,12 @@
 <?php
 /**
- * Plugin Name: Email Subscribers & Newsletters
+ * Plugin Name: Email Subscribers & Newsletters (DGFIP FORK)
  * Plugin URI: https://www.icegram.com/
  * Description: Add subscription forms on website, send HTML newsletters & automatically notify subscribers about new blog posts once it is published.
+ * Fork description: This fork version handles a basic form of synchronization with a unique Sympa list (which updates when adding or removing user)
  * Version: 4.3.13
+ * Forked by: guilrom
+ * Fork URI: https://github.com/guilrom/wordpress-email-subscribers
  * Author: Icegram
  * Author URI: https://www.icegram.com/
  * Requires at least: 3.9
